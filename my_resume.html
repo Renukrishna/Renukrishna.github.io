@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renukrishna Hegde - Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Professional Blue Slate -->
+    <!-- Application Structure Plan: A single-page application with a fixed sidebar for navigation and a main content area. This structure allows recruiters to quickly jump to key sections like Skills or Experience. The experience section is presented as a visual timeline for better storytelling. Skills are displayed as interactive tags to connect abilities with projects, enhancing engagement over a static list. This design prioritizes non-linear exploration and quick information retrieval for a busy audience. -->
+    <!-- Visualization & Content Choices: Report Info: Work History -> Goal: Show career progression -> Viz/Presentation: Vertical Timeline (HTML/CSS) -> Interaction: Scroll-based navigation -> Justification: More engaging and easier to follow than a plain list. Report Info: Skills List -> Goal: Showcase technical abilities -> Viz/Presentation: Skill Tags/Pills grouped by category (HTML/CSS) -> Interaction: Highlighting related projects on click (JS) -> Justification: Visually appealing and demonstrates the application of skills. No charts needed as the source is purely textual. NO SVG/Mermaid used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.75rem;
+            top: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 50%;
+            background-color: #3b82f6;
+            border: 4px solid #f8fafc;
+            z-index: 10;
+        }
+        .nav-link.active {
+            color: #3b82f6;
+            transform: translateX(5px);
+            font-weight: 600;
+        }
+        .skill-tag.selected {
+            background-color: #3b82f6;
+            color: white;
+            transform: scale(1.05);
+        }
+        .experience-bullet.highlight {
+            background-color: #dbeafe;
+            border-left: 3px solid #3b82f6;
+            padding-left: 1rem;
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <div class="max-w-7xl mx-auto">
+        <div class="lg:flex">
+            <!-- Left Sidebar / Header -->
+            <header class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/3 lg:flex-col lg:justify-between lg:py-24 px-6 lg:px-10">
+                <div>
+                    <h1 class="text-4xl font-bold tracking-tight text-slate-800 sm:text-5xl">Renukrishna Hegde</h1>
+                    <h2 class="mt-3 text-lg font-medium tracking-tight text-slate-800 sm:text-xl">Software Engineer at Cisco</h2>
+                    <p class="mt-4 max-w-xs leading-normal text-slate-500">
+                        I build robust automation systems and scalable software solutions for modern infrastructure.
+                    </p>
+                    <div class="mt-6 flex items-center gap-4 text-slate-500">
+                        <a href="mailto:renukrishnahegde@gmail.com" class="hover:text-blue-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" class="hover:text-blue-500">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <nav class="hidden lg:block mt-12">
+                    <ul class="space-y-4 text-slate-500">
+                        <li><a href="#summary" class="nav-link transition-all duration-300 hover:text-blue-500">About</a></li>
+                        <li><a href="#experience" class="nav-link transition-all duration-300 hover:text-blue-500">Experience</a></li>
+                        <li><a href="#skills" class="nav-link transition-all duration-300 hover:text-blue-500">Skills</a></li>
+                        <li><a href="#education" class="nav-link transition-all duration-300 hover:text-blue-500">Education & Certs</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Right Content -->
+            <main class="lg:w-2/3 lg:py-24 px-6 lg:px-10">
+                <section id="summary" class="mb-16 md:mb-24 scroll-mt-24">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-6 sticky top-0 lg:hidden bg-slate-50/80 backdrop-blur-sm py-2">About</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Results-driven Software Engineer with 5 years of experience at Cisco, specializing in the design, development, and deployment of robust automation frameworks for infrastructure maintenance. Proven ability to translate complex operational challenges into scalable software solutions that significantly enhance efficiency and reduce manual effort. Seeking to leverage a strong background in Python, cloud technologies, and full-stack development to contribute to innovative software development initiatives.
+                    </p>
+                </section>
+
+                <section id="experience" class="mb-16 md:mb-24 scroll-mt-24">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-8 sticky top-0 lg:hidden bg-slate-50/80 backdrop-blur-sm py-2">Experience</h3>
+                    <div class="relative border-l-2 border-slate-200 ml-11 pl-12 space-y-12">
+                        <!-- Full-Time Role -->
+                        <div class="timeline-item">
+                            <h4 class="text-lg font-semibold text-slate-800">Software Engineer</h4>
+                            <p class="text-blue-500 font-medium">Cisco Systems, Inc.</p>
+                            <p class="text-sm text-slate-500 mb-4">August 2020 – Present</p>
+                            <ul class="space-y-3 list-disc list-outside text-slate-600">
+                                <li class="experience-bullet transition-all duration-300" data-skills="Python,Ansible">Engineered and deployed comprehensive automation tools using custom Python modules, streamlining critical storage processes such as zoning and ADT unexport, significantly reducing manual effort.</li>
+                                <li class="experience-bullet transition-all duration-300" data-skills="Angular,React">Led the modernization of legacy tools by refactoring unnecessary interface modules and leveraging framework advantages, resulting in simplified processes and reduced technical debt within the storage domain.</li>
+                                <li class="experience-bullet transition-all duration-300" data-skills="Angular">Developed and executed a strategic UI migration from AngularJS to Angular 7, enhancing user experience and maintainability for critical storage applications.</li>
+                                <li class="experience-bullet transition-all duration-300" data-skills="Ansible">Implemented robust Ansible workflows to automate complex storage operations, including NetApp scanning and EMC D20 operational tasks, boosting efficiency and reliability.</li>
+                                <li class="experience-bullet transition-all duration-300" data-skills="Python">Designed and built a Python module for seamless integration and migration of sensitive data to a new secrets vault, providing a unified interface for both human and automated access.</li>
+                                <li class="experience-bullet transition-all duration-300" data-skills="DevOps Principles">Provided critical on-call support for automation workflows, proactively identifying and resolving tool failures to ensure continuous operational stability and minimize downtime.</li>
+                                <li class="experience-bullet transition-all duration-300" data-skills="Python,MongoDB,Redis,Cassandra">Developed and maintained a suite of Python modules and scripts to automate critical CloudDB operations, including Mongo Refresh, SSL renewal, Redis consumption, and Cassandra automation, significantly improving service delivery.</li>
+                                <li class="experience-bullet transition-all duration-300" data-skills="Python,Django,FastAPI">Designed and implemented RESTful API endpoints using Django and FastAPI, enabling self-service automation workflows for end-users of CloudDB services.</li>
+                                <li class="experience-bullet transition-all duration-300" data-skills="Angular,React">Contributed to UI development in Angular for CloudDB solutions and proposed a strategic plan for migrating to React to further modernize the platform and reduce technical debt.</li>
+                            </ul>
+                        </div>
+                        <!-- Internship Role -->
+                        <div class="timeline-item">
+                             <h4 class="text-lg font-semibold text-slate-800">Internship - Software Engineer</h4>
+                             <p class="text-blue-500 font-medium">Cisco Systems, Inc.</p>
+                             <p class="text-sm text-slate-500 mb-4">January 2020 – June 2020</p>
+                             <ul class="space-y-3 list-disc list-outside text-slate-600">
+                                <li class="experience-bullet transition-all duration-300" data-skills="Python">Developed a new API feature for Infrastructure-as-Code (IAC) that enables directory synchronization between two hosts with real-time progress monitoring, significantly reducing the need for manual intervention.</li>
+                                <li class="experience-bullet transition-all duration-300" data-skills="Python">Engineered a Command Line Interface (CLI) for existing IAC modules, providing a user-friendly and direct method for launching key infrastructure features on a host.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="skills" class="mb-16 md:mb-24 scroll-mt-24">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-6 sticky top-0 lg:hidden bg-slate-50/80 backdrop-blur-sm py-2">Skills</h3>
+                    <p class="mb-8 text-slate-600">Click on a skill to highlight related projects in the experience section.</p>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-semibold text-slate-800 mb-3">Programming Languages</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag cursor-pointer rounded-full bg-blue-100 text-blue-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-blue-200" data-skill="Python">Python</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-slate-200 text-slate-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-slate-300" data-skill="Go">Go</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-slate-200 text-slate-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-slate-300" data-skill="Java">Java</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-slate-200 text-slate-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-slate-300" data-skill="JavaScript">JavaScript</span>
+                            </div>
+                        </div>
+                         <div>
+                            <h4 class="font-semibold text-slate-800 mb-3">Cloud & Automation</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag cursor-pointer rounded-full bg-blue-100 text-blue-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-blue-200" data-skill="Ansible">Ansible</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-slate-200 text-slate-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-slate-300" data-skill="Kubernetes">Kubernetes</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-slate-200 text-slate-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-slate-300" data-skill="Docker">Docker</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-slate-200 text-slate-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-slate-300" data-skill="CI/CD">CI/CD</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-slate-200 text-slate-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-slate-300" data-skill="AWS">AWS</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-slate-200 text-slate-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-slate-300" data-skill="Azure">Azure</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-800 mb-3">Generative AI</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag cursor-pointer rounded-full bg-blue-100 text-blue-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-blue-200" data-skill="RAG">RAG</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-slate-200 text-slate-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-slate-300" data-skill="Prompt Engineering">Prompt Engineering</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-slate-200 text-slate-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-slate-300" data-skill="Agents">Agents</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-slate-800 mb-3">Web & Databases</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag cursor-pointer rounded-full bg-blue-100 text-blue-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-blue-200" data-skill="Django">Django</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-blue-100 text-blue-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-blue-200" data-skill="FastAPI">FastAPI</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-blue-100 text-blue-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-blue-200" data-skill="Angular">Angular</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-blue-100 text-blue-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-blue-200" data-skill="React">React</span>
+                                <span class="skill-tag cursor-pointer rounded-full bg-slate-200 text-slate-800 px-3 py-1 text-sm font-medium transition-all duration-300 hover:bg-slate-300" data-skill="SQL">SQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="education" class="scroll-mt-24">
+                     <h3 class="text-2xl font-semibold text-slate-800 mb-6 sticky top-0 lg:hidden bg-slate-50/80 backdrop-blur-sm py-2">Education & Certifications</h3>
+                     <div class="grid sm:grid-cols-2 gap-6">
+                         <div class="bg-white p-6 rounded-lg shadow-sm">
+                            <p class="text-sm text-slate-500 mb-1">2020</p>
+                            <h4 class="font-semibold text-slate-800">Bachelor of Engineering - Computer Science</h4>
+                            <p class="text-slate-500">SJCE, Mysore</p>
+                         </div>
+                         <div class="bg-white p-6 rounded-lg shadow-sm">
+                             <p class="text-sm text-slate-500 mb-1">CERTIFICATIONS</p>
+                             <h4 class="font-semibold text-slate-800">Red Hat Certified Engineer (RHCE)</h4>
+                             <p class="text-slate-500">Red Hat Performance Tuning</p>
+                         </div>
+                     </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sections = document.querySelectorAll('main section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const skillTags = document.querySelectorAll('.skill-tag');
+        const experienceBullets = document.querySelectorAll('.experience-bullet');
+        let selectedSkill = null;
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        skillTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                const skill = tag.dataset.skill;
+
+                if (selectedSkill === skill) {
+                    // Deselect
+                    selectedSkill = null;
+                    tag.classList.remove('selected');
+                    tag.classList.replace('bg-blue-100', 'bg-slate-200');
+                    tag.classList.replace('text-blue-800', 'text-slate-800');
+                    experienceBullets.forEach(bullet => bullet.classList.remove('highlight'));
+                } else {
+                    // Select
+                    selectedSkill = skill;
+                    skillTags.forEach(t => {
+                        t.classList.remove('selected');
+                        t.classList.remove('bg-blue-100','text-blue-800');
+                        t.classList.add('bg-slate-200', 'text-slate-800');
+                    });
+                    tag.classList.add('selected');
+                    tag.classList.remove('bg-slate-200', 'text-slate-800');
+                    tag.classList.add('bg-blue-100', 'text-blue-800');
+
+
+                    experienceBullets.forEach(bullet => {
+                        const bulletSkills = bullet.dataset.skills.split(',');
+                        if (bulletSkills.includes(skill)) {
+                            bullet.classList.add('highlight');
+                        } else {
+                            bullet.classList.remove('highlight');
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
